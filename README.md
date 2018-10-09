@@ -133,13 +133,13 @@ http://www.everyinch.net/virtual/public/index.php 是本网站实体
 * 此虚拟网站是用thinkphp5技术搭建的框架
 ### 前台: 
 * 1.页面的展示
-  + a.导航条
-  + b.轮播图
-  + c.多级折叠菜单栏
+  + 导航条
+  + 轮播图
+  + 多级折叠菜单栏
 * 2.使用框架
-    + a.bootstrap
-    + b.jQuery
-    + c.thinkphp5
+    + bootstrap
+    + jQuery
+    + thinkphp5
 ### 后台:
-     + 1.利用thinkphp5搭建前后台
-     + 2.bootstrap 后台页面
+     * 1.利用thinkphp5搭建前后台
+     * 2.bootstrap 后台页面
