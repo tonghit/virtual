@@ -124,3 +124,22 @@ All rights reserved。
 ThinkPHP® 商标和著作权所有者为上海顶想信息科技有限公司。
 
 更多细节参阅 [LICENSE.txt](LICENSE.txt)
+
+
+###本产品是针对虚拟实验室所做的网站
+
+http://www.everyinch.net/virtual/public/index.php 是本网站实体
+
+* 此虚拟网站是用thinkphp5技术搭建的框架
+###前台:
+* 1.页面的展示
+  a.导航条
+  b.轮播图
+  c.多级折叠菜单栏
+* 2.使用框架
+     a.bootstrap
+     b.jQuery
+     c.thinkphp5
+###后台:
+     1.利用thinkphp5搭建前后台
+     2.bootstrap 后台页面
