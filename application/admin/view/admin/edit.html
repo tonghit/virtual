@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>管理员修改</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="__PUBLIC__/img/favicon.ico">
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/fullcalendar.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/matrix-style.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/matrix-media.css" />
+<link href="__PUBLIC__/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="__PUBLIC__/css/jquery.gritter.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/jquery.gritter.css"">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css">
+</head>
+<body>
+
+<!--Header-part-->
+{include file="common/header" /}
+<!--close-top-serch-->
+
+
+<!--sidebar-menu-->
+{include file="common/left" /}
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 系统</a> <a href="{:url('admin/lst')}" class="active">管理员列表</a> <a href="#" class="current">修改管理员信息</a>
+    </div> 
+  </div>   
+
+  <div class="container-fluid">
+    <hr>                                            
+    
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+            <h5>修改管理员</h5>
+          </div>
+         <div class="widget-body" style="margin: 10px">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" action="" method="post" style="margin-left:30px">
+                    <input type="hidden" name="id" value="{$admins.id}">
+                        <div class="form-group">
+                            <label for="username" class="">管理员名</label>
+                            <div class="">
+                                <input class="form-control" id="username" placeholder="" name="username"  type="text" value={$admins.username}>
+                                <span class=" " style="color: red">* 必填   </span> 
+                            </div>
+                        </div>
+                        <p></p>
+                        <div class="form-group">
+                            <label for="group_id" >管理员密码 </label>
+                            <div class="">
+                                 <input class="form-control" id="password" placeholder="" name="password" type="text">
+                                 <span class=" " style="color: red">* 留空表示不修改密码 </span> 
+                            </div>
+                        </div>  
+                        <p></p>
+                        <div class="form-group" >
+                            <div class="">
+                                <button type="submit" class="btn btn-default">保存信息</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+             <div class="widget-foot"></div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in/">Themedesigner.in</a> </div>
+</div>
+
+<!--end-Footer-part-->
+
+<script src="__PUBLIC__/js/excanvas.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.ui.custom.js"></script> 
+<script src="__PUBLIC__/js/bootstrap.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.flot.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.flot.resize.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.peity.min.js"></script> 
+<script src="__PUBLIC__/js/fullcalendar.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.validate.js"></script> 
+<script src="__PUBLIC__/js/jquery.wizard.js"></script> 
+<script src="__PUBLIC__/js/jquery.uniform.js"></script> 
+<script src="__PUBLIC__/js/select2.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script> 
+<script src="__PUBLIC__/js/matrix.js"></script> 
+
+
+</body>
+</html>

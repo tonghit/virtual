@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>文章添加</title>
+<meta charset="UTF-8" />
+<link rel="icon" href="__PUBLIC__/img/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/fullcalendar.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/matrix-style.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/matrix-media.css" />
+<link href="__PUBLIC__/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="__PUBLIC__/css/jquery.gritter.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/jquery.gritter.css"">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css">
+<script src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<script src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+<script src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+</head>
+<body>
+
+<!--Header-part-->
+{include file="common/header" /}
+<!--close-Header-part-->
+
+
+<!--sidebar-menu-->
+{include file="common/left" /}
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 系统</a> <a href="{:url('article/lst')}" class="active">文章列表</a> <a href="#" class="current">添加文章</a>
+    </div> 
+  </div>   
+
+  <div class="container-fluid">
+    <hr>                                            
+    
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+            <h5>新增文章</h5>
+          </div>
+         <div class="widget-body" style="margin: 10px">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="title" class="">文章标题</label>
+                            <div class="">
+                                <input class="form-control" placeholder="" name="title" type="text">
+                                <span class=" " style="color: red">* 必填   </span> 
+                            </div>
+                        </div>
+                        <p></p>
+
+                        <div class="form-group">
+                            <label for="author" class="">文章作者</label>
+                            <div class="">
+                                <input class="form-control" placeholder="" name="author" type="text">
+                               
+                            </div>
+                        </div>
+                         <p></p>
+                          
+                           <div class="form-group">
+                            <label for="datetime" class="">发表时间</label>
+                            <div class="">
+                                <input class="form-control" placeholder="" name="datetime" type="datetime" >
+                               
+                            </div>
+                        </div>
+                         <p></p>
+
+
+                        <div class="form-group">
+                            <label for=keywords" class="">关键词</label>
+                            <div class="">
+                                <input class="form-control" placeholder="" name="keywords" type="text">
+                                <span class=" " style="color: red">* 必填   </span> 
+                            </div>
+                        </div>
+                         <p></p>
+
+                        <div class="form-group">
+                            <label for="desc" class="">描述</label>
+                            <div class="">
+                                <textarea name="desc"></textarea>
+                                <span class=" " style="color: red">* 必填   </span> 
+                            </div>
+                        </div>
+                        <p></p>
+
+
+                        <div class="form-group">
+                            <label for="" class="">所属栏目</label>
+                            <div class="">
+                                <select name="catesid">
+                                  <option value="">顶级文章</option>
+                                  {volist name="articles" id="art"}
+                                  <option value="{$art.id}"><?php echo str_repeat('- ',$art['level']*3)?>{$art.catesname}</option>
+                                  {/volist}
+                                </select>
+                                <span class=" " style="color: red">* 必填   </span> 
+                            </div>
+                        </div>
+                        <p></p>
+
+                        <div class="form-group">
+                            <label >文章内容</label>
+                            <div class="">
+                                <textarea id="ueditor" name="content"></textarea>     
+                            </div>
+                        </div>
+                        <p></p>
+                        
+                        <div class="form-group" >
+                            <div class="">
+                                <button type="submit" class="btn btn-default">保存信息</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+             <div class="widget-foot"> </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in/">Themedesigner.in</a> </div>
+</div>
+
+<!--end-Footer-part-->
+
+<script src="__PUBLIC__/js/excanvas.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.ui.custom.js"></script> 
+<script src="__PUBLIC__/js/bootstrap.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.flot.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.flot.resize.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.peity.min.js"></script> 
+<script src="__PUBLIC__/js/fullcalendar.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.validate.js"></script> 
+<script src="__PUBLIC__/js/jquery.wizard.js"></script> 
+<script src="__PUBLIC__/js/jquery.uniform.js"></script> 
+<script src="__PUBLIC__/js/select2.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script> 
+<script src="__PUBLIC__/js/matrix.js"></script> 
+
+<script type="text/javascript">
+      UE.getEditor('ueditor',{initialFrameWidth:400,initialFrameHeight:200,});
+</script>
+
+
+</body>
+</html>

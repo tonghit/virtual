@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>栏目添加</title>
+<meta charset="UTF-8" />
+<link rel="icon" href="__PUBLIC__/img/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/fullcalendar.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/matrix-style.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/matrix-media.css" />
+<link href="__PUBLIC__/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="__PUBLIC__/css/jquery.gritter.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/jquery.gritter.css"">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css">
+
+</head>
+<body>
+
+<!--Header-part-->
+{include file="common/header" /}
+<!--close-Header-part-->
+
+
+<!--sidebar-menu-->
+{include file="common/left" /}
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 系统</a> <a href="{:url('cates/lst')}" class="active">栏目列表</a> <a href="#" class="current">添加栏目</a>
+    </div> 
+  </div>   
+
+  <div class="container-fluid">
+    <hr>                                            
+    
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+            <h5>新增栏目</h5>
+          </div>
+         <div class="widget-body" style="margin: 10px">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" action="" method="post" style="margin-left:25px">
+                        <div class="form-group">
+                            <label for="username" class="">上级栏目</label>
+                            <div class="">
+                                <select name="pid">
+                                  <option value="0">顶级栏目</option>
+                                  {volist name="cateres" id="cates"}
+                                  <option value="{$cates.id}"><?php echo str_repeat('- ',$cates['level']*3)?>{$cates.catesname}</option>
+                                  {/volist}
+                                </select>
+                                <span class=" " style="color: red">* 必填   </span> 
+                            </div>
+                        </div>
+                        <p></p>
+
+                        <div class="form-group">
+                            <label for="username" class="">栏目名称</label>
+                            <div class="">
+                                <input class="form-control" placeholder="" name="catesname" type="text">
+                                <span class=" " style="color: red">* 必填   </span> 
+                            </div>
+                        </div>
+                        <p></p>
+                        <div class="form-group">
+                            <label for="group_id" >栏目类型</label>
+                            <div class="radio"  >
+                                <label ">
+                                    <input  type="radio" name="type" checked="checked" value="1">
+                                    <span class="text">列表栏目</span>
+                                </label>
+                            
+                            
+                                 <label  >
+                                    <input class="inverted" type="radio" name="type" value="2">
+                                    <span class="text">单页栏目</span>
+                                </label>
+                            </div>
+                        </div>  
+                        <p></p>
+                        <div class="form-group" >
+                            <div class="">
+                                <button type="submit" class="btn btn-default">保存信息</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+             <div class="widget-foot"> </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in/">Themedesigner.in</a> </div>
+</div>
+
+<!--end-Footer-part-->
+
+<script src="__PUBLIC__/js/excanvas.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.ui.custom.js"></script> 
+<script src="__PUBLIC__/js/bootstrap.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.flot.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.flot.resize.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.peity.min.js"></script> 
+<script src="__PUBLIC__/js/fullcalendar.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.validate.js"></script> 
+<script src="__PUBLIC__/js/jquery.wizard.js"></script> 
+<script src="__PUBLIC__/js/jquery.uniform.js"></script> 
+<script src="__PUBLIC__/js/select2.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script> 
+<script src="__PUBLIC__/js/matrix.js"></script> 
+
+
+</body>
+</html>

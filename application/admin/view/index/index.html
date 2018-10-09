@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>主页</title>
+<meta charset="UTF-8" />
+<link rel="icon" href="__PUBLIC__/img/favicon.ico">
+<link rel="icon" href="__PUBLIC__/img/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/fullcalendar.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/matrix-style.css" />
+<link rel="stylesheet" href="__PUBLIC__/css/matrix-media.css" />
+<link href="__PUBLIC__/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="__PUBLIC__/css/jquery.gritter.css" />
+</head>
+<body>
+
+<!--Header-part-->
+<div id="header">
+  <h1><a href="dashboard.html">Matrix Admin </a></h1>
+</div>
+<!--close-Header-part--> 
+
+
+<!--top-Header-menu-->
+<div id="user-nav" class="navbar navbar-inverse">
+  <ul class="nav">
+    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">欢迎用户</span><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="#"><i class="icon-user"></i> 我的简历</a></li>
+        <li class="divider"></li>
+        <li><a href="#"><i class="icon-check"></i> 我的消息</a></li>
+        <li class="divider"></li>
+        <li><a href="login.html"><i class="icon-key"></i> 登录退出</a></li>
+      </ul>
+    </li>
+   
+    <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">设置</span></a></li>
+    <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">登录退出</span></a></li>
+  </ul>
+</div>
+<!--close-top-Header-menu-->
+
+
+<!--start-top-serch-->
+<div id="search">
+  <input type="text" placeholder="Search here..."/>
+  <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
+</div>
+<!--close-top-serch-->
+
+
+<!--sidebar-menu-->
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> 列表单</a>
+  <ul>
+    <li class="submenu"><a href="index.html"><i class="icon icon-home"></i> <span>管理员</span></a> 
+      <ul>
+        <li><a href="{:url('admin/lst')}">管理员列表</a></li>
+        <li><a href="{:url('teacher/lst')}">教师列表</a></li>
+        <li><a href="{:url('student/lst')}">学生列表</a></li>
+      </ul>
+    </li>
+ 
+    <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>实验报告</span> </a>
+      <ul>
+        <li><a href="{:url('cates/lst')}">栏目列表</a></li>
+        
+      </ul>
+    </li>
+  </ul>   
+</div>
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content">
+
+<!--Chart-box-->    
+    <div class="row-fluid">
+      <div class="widget-box">
+        <div class="widget-title bg_lg"><span class="icon"><i class="icon-signal"></i></span>
+          <h5>Site Analytics</h5>
+        </div>
+        <div class="widget-content" >
+          <div class="row-fluid">
+            <div class="span9">
+              <div class="chart"></div>
+            </div>
+            <div class="span3">
+              <ul class="site-stats">
+                <li class="bg_lh"><i class="icon-user"></i> <strong>2540</strong> <small>Total Users</small></li>
+                <li class="bg_lh"><i class="icon-plus"></i> <strong>120</strong> <small>New Users </small></li>
+                <li class="bg_lh"><i class="icon-shopping-cart"></i> <strong>656</strong> <small>Total Shop</small></li>
+                <li class="bg_lh"><i class="icon-tag"></i> <strong>9540</strong> <small>Total Orders</small></li>
+                <li class="bg_lh"><i class="icon-repeat"></i> <strong>10</strong> <small>Pending Orders</small></li>
+                <li class="bg_lh"><i class="icon-globe"></i> <strong>8540</strong> <small>Online Orders</small></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--End-Chart-box--> 
+    
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in/">Themedesigner.in</a> </div>
+</div>
+
+<!--end-Footer-part-->
+
+<script src="__PUBLIC__/js/excanvas.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.ui.custom.js"></script> 
+<script src="__PUBLIC__/js/bootstrap.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.flot.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.flot.resize.min.js"></script> 
+<script src="__PUBLIC__/js/jquery.peity.min.js"></script> 
+<script src="__PUBLIC__/js/fullcalendar.min.js"></script> 
+<script src="__PUBLIC__/js/matrix.js"></script> 
+<script src="__PUBLIC__/js/matrix.dashboard.js"></script> 
+<script src="__PUBLIC__/js/matrix.interface.js"></script> 
+<script src="__PUBLIC__/js/matrix.chat.js"></script> 
+<script src="__PUBLIC__/js/jquery.validate.js"></script> 
+<script src="__PUBLIC__/js/matrix.form_validation.js"></script> 
+<script src="__PUBLIC__/js/jquery.wizard.js"></script> 
+<script src="__PUBLIC__/js/jquery.uniform.js"></script> 
+<script src="__PUBLIC__/js/select2.min.js"></script> 
+<script src="__PUBLIC__/js/matrix.popover.js"></script> 
+<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script> 
+<script src="__PUBLIC__/js/matrix.tables.js"></script> 
+
+
+
+
+
+
+
+</body>
+</html>

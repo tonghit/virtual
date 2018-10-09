@@ -1,0 +1,114 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head> 
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>通知要闻</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="__PUBLIC__/img/favicon.ico">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/main.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/index.css" />
+  <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" />
+ 
+ 
+</head>
+
+<body>
+  
+  <!-- header start -->
+  {include file="common/header" /}
+  <!-- header end -->
+
+
+
+  <!-- center start -->
+  <div class="container">
+    <div class="row clearfix" id="yx">
+      
+      <div class="col-md-4 column" id="yx-a">
+        <ul>
+          <li><h4>通知要闻</h4></li>
+        </ul>
+      </div>
+      
+      <div class="col-md-8 column" >
+        <div class="gps">
+          当前位置:  &nbsp;&nbsp; <a href="{:url('index/index')}">首页</a> << <a href="{:url('tzyw/index')}">通知要闻</a> 
+        </div>
+        
+        <article >
+          <h3>通知要闻</h3>
+          
+
+          <div class="center" id="tzyw_height">
+            <div class="col-md-12 column ac" >
+              <ol>
+                {volist name="tzyws" id="vo"}
+                <li>
+                  <a href="{:url('tzyw/nn',array('arid'=>$vo['id']))}" title="">
+                   <?php echo mb_substr($vo['title'],0,25,'utf-8');if(strlen($vo['title'])>25){echo '...';}?>
+                 </a><span class="fr category-date">{$vo.datetime}</span>
+                </li>
+                {/volist}
+              </ol>
+            </div>
+            <div class="col-md-12">
+              <div style="float: right;">
+                {$tzyws->render()}
+              </div>
+            </div>
+            
+             
+          </div>
+          
+         
+            
+         
+        </article>
+      </div>
+    </div>
+  </div>
+  <!-- center end -->
+
+  <!-- footer start -->
+  {include file="common/foot" /}
+  <!-- footer end -->
+ 
+  <script src="__PUBLIC__/js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="__PUBLIC__/js/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="__PUBLIC__/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="__PUBLIC__/js/plugins.js"></script>
+  <script src="__PUBLIC__/js/main.js"></script>
+  <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/move-top.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/easing.js"></script>
+
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+    
+      var defaults = {
+          containerID: 'toTop', // fading element id
+        containerHoverID: 'toTopHover', // fading element hover id
+        scrollSpeed: 1200,
+        easingType: 'linear' 
+      };
+      
+      
+      $().UItoTop({ easingType: 'easeOutQuart' });
+      
+    });
+  </script>
+  <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+</body>
+
+</html>
+

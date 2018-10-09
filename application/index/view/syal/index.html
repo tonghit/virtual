@@ -1,0 +1,266 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head> 
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>实验教学</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="__PUBLIC__/img/favicon.ico">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/main.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/index.css" />
+  <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" />
+  
+
+  <style type="text/css">
+
+     .panel-group{max-height:770px;overflow: auto;}
+    .leftMenu{margin:10px;margin-top:5px;}
+    .leftMenu .panel-heading{font-size:14px;padding-left:20px;height:36px;line-height:36px;color:white;position:relative;cursor:pointer;}/*转成手形图标*/
+    .leftMenu .panel-heading span{position:absolute;right:10px;top:12px;}
+    .leftMenu .menu-item-left{padding: 2px; background: transparent;}
+    .leftMenu .menu-item-left:hover{background:#C4E3F3;border:1px solid #1E90FF;}
+    .list-group-item {padding: 0px;}
+    .list-group-item a {display: block;height: 36px;line-height: 36px;text-align: left;width: 274px;padding-left: 25px}
+    .leftMenu #left{float: left;left:4px;top:12px;}
+    .leftMenu .head02{position:relative;cursor:pointer;}/*转成手形图标*/
+    .leftMenu .head02 span{position:absolute;}
+     #ul02 {display: none}
+    #ul02 .list-group-item a {display: block;height: 36px;line-height: 36px;text-align: left;width: 100px;margin-left:20px}
+    .leftMenu #left02{float: left;left:20px;top:12px;}
+    #ul03 {display: none}
+    #ul03 .list-group-item a {display: block;height: 36px;line-height: 36px;text-align: left;width: 200px;margin-left:45px}
+    .leftMenu #left03{float: left;left:50px;top:12px;}
+    #ul04 {display: none}
+    #ul04 .list-group-item a {display: block;height: 36px;line-height: 36px;text-align: left;width: 200px;margin-left:70px}
+    .leftMenu #left04{float: left;left:70px;top:12px;}
+    #ul05 {display: none}
+    #ul05 .list-group-item a {display: block;height: 36px;line-height: 36px;text-align: left;width: 200px;margin-left:90px}
+    .leftMenu #left05{float: left;left:90px;top:12px;}
+    #ul02, #ul03, #ul04, #ul05{border-top: 1px solid #ddd}
+  </style>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+  
+  <!-- header start -->
+  {include file="common/header" /}
+  <!-- header end -->
+
+
+
+  <!-- center start -->
+  <div class="container">
+    <div class="row clearfix" >
+      
+     <div class="col-md-4" style="margin-top: 20px">
+                <div class=" " role="tablist">
+                    <div class="panel panel-primary leftMenu" style="width:284px">
+                        {volist name='cateres' id='cate'}
+                        <div class="panel-heading " id="{$cate.id}" data-toggle="collapse" data-target="#{$cate.id+1}" role="tab" >
+                            <h4 class="panel-title">
+                                <a href="__URL__/{if condition="$cate['type'] eq 1"}article{/if}/index/cateid/{$cate.id}">
+                                  <?php echo mb_substr($cate['catesname'],0,13,'utf-8');if(strlen($cate['catesname'])>13){echo '...';}?>
+                                </a>
+
+                                <span class="glyphicon glyphicon-chevron-up right"></span>
+                            </h4>
+                        </div>
+                        {if condition="$cate['children'] neq 0"}
+                        <!-- .panel-collapse和.collapse标明折叠元素 .in表示要显示出来 -->
+                        <div id="{$cate.id+1}" class="panel-collapse collapse " role="tabpanel" aria-labelledby="{$cate.id}">
+                            <ul class="list-group">
+                            <?php foreach ($cate['children'] as $k2 => $v2):?>
+                              <li class="list-group-item head02" data-toggle="collapse" data-target="#one" role="tab">
+                                <!-- 利用data-target指定URL -->
+                                <button class="menu-item-left" data-target="test2.html">
+                                    <span class="glyphicon glyphicon-triangle-bottom aaa" id="left" onclick="w('ul02')"></span>
+                                    <a  href="__URL__/{if condition="$v2['type'] eq 1"}article{/if}/index/cateid/{$v2.id}">
+                                     
+                                        <!-- <?php echo $v2['catesname'];?> -->
+                                        <?php echo mb_substr($v2['catesname'],0,13,'utf-8');if(strlen($v2['catesname'])>13){echo '...';}?>
+                                    </a>
+                                                                  
+                                    <ul id="ul02"  class="yiji">
+                                    <?php 
+                                    
+                                      $ch02=db('cates')->where(array('pid'=>$v2['id']))->select();
+                                      foreach($ch02 as $k3=>$v3){
+                                          
+                                         
+                                    ?>
+                                      <li class="list-group-item panel-collapse collapse "  role="tabpanel" >
+
+                                        <span class="glyphicon glyphicon-triangle-bottom aaa" id="left02" onclick="w('ul03')"></span> 
+                                        <a href="__URL__/{if condition="$v3['type'] eq 1"}article{/if}/index/cateid/{$v3.id}" > <?php echo $v3['catesname'];?></a>
+
+                                        <ul id="ul03" >
+                                         <?php 
+                                          
+                                          $ch03=db('cates')->where(array('pid'=>$v3['id']))->select();
+                                          foreach($ch03 as $k4=>$v4){
+                                              
+                                             
+                                        ?>
+                                          <li class="list-group-item panel-collapse collapse "  role="tabpanel"   >
+
+                                            <span class="glyphicon glyphicon-triangle-bottom aaa" id="left03" onclick="w('ul04')"></span> 
+                                            <a href="#" ><?php echo $v4['catesname'];?></a>
+                                            
+                                            <ul id="ul04"  >
+                                            <?php 
+                                                
+                                                $ch04=db('cates')->where(array('pid'=>$v4['id']))->select();
+                                                foreach($ch04 as $k5=>$v5){
+                                                    
+                                                   
+                                              ?>
+                                              <li class="list-group-item panel-collapse  collapse "  role="tabpanel"    >
+
+                                                <span class="glyphicon  aaa" id="left04" onclick="w('ul05')"></span> 
+                                                <a href="#" > <?php echo $v5['catesname'];?></a>
+
+                                               
+                                                
+
+                                              </li>
+                                              <?php } ?>
+
+                                            </ul>
+                                            
+                                          </li>
+                                          <?php } ?>
+
+                                        </ul>
+
+
+                                      </li>
+                                   
+                                    <?php } ?>
+                                    </ul>
+                                    
+                                   
+
+                         
+                              </li>
+                              <?php endforeach;?>
+                            </ul>
+
+                            
+                            </ul>
+
+                        </div>
+                        {/if}
+                        {/volist}
+                    </div><!--panel end-->
+                
+                    
+                </div>
+      </div>
+      
+      <div class="col-md-8 column" id="i_zxgk">
+        <div class="gps">
+          当前位置:  &nbsp;&nbsp; <a href="{:url('index/index')}">首页</a> << <a href="{:url('syjx/index')}">实验教学</a>
+        </div>
+        
+        <article>
+          <h3>实验教学</h3>
+          <div class="data">2014-07-01 05:32:00 </div>
+
+          <div class="center">
+            <p>高端装备虚拟仿真实验教学中心建立的实验教学平台的构成合理、互相联系，为本科生培养的各个阶段、各个环节提供实践的载体，既体现了专业特色，又突出了高、精、尖技术交叉，为高端装备制造的设计、制造和管理人才培养提供全方位支持。高端装备虚拟仿真实验教学中心的三个实验教学平台的实验教学构成为下图所示：</p>
+
+            <p ><img  src="__PUBLIC__/img/4(1).jpg" style="margin-left: 0px" /></p>
+
+
+          </div>
+          
+
+        </article>
+      </div>
+    </div>
+  </div>
+  <!-- center end -->
+
+  <!-- footer start -->
+  {include file="common/foot" /}
+  <!-- footer end -->
+ 
+  <script src="__PUBLIC__/js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="__PUBLIC__/js/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="__PUBLIC__/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="__PUBLIC__/js/plugins.js"></script>
+  <script src="__PUBLIC__/js/main.js"></script>
+  <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/move-top.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/easing.js"></script>
+
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+    
+      var defaults = {
+          containerID: 'toTop', // fading element id
+        containerHoverID: 'toTopHover', // fading element hover id
+        scrollSpeed: 1200,
+        easingType: 'linear' 
+      };
+      
+      
+      $().UItoTop({ easingType: 'easeOutQuart' });
+      
+    });
+  </script>
+  <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+ <script>
+        $(function(){
+            $(".panel-heading").click(function(e){
+                /*切换折叠指示图标*/
+               
+                $(this).find("span").toggleClass("glyphicon-chevron-up");
+                $(this).find("span").toggleClass("glyphicon-chevron-down");
+               
+            });
+            $(".aaa").click(function(e){
+                /*切换折叠指示图标*/
+               
+                $(this).toggleClass("glyphicon-triangle-right");
+                $(this).toggleClass("glyphicon-triangle-bottom");
+               
+            });
+        });
+        $(document).ready(function() {
+        $('.aaa').click(function(){
+            var className=$(this).parents('li').parents().attr('class');
+            if($(this).siblings('ul').css('display')=='none'){
+                if(className=="yiji"){
+                    $(this).parents('li').siblings('li').children('ul').parent('li').children('a').removeClass('aaa');
+                    $(this).parents('li').siblings('li').children('ul').slideUp(100);
+                    $(this).parents('li').children('ul').children('li').children('ul').parent('li').children('a').removeClass('aaa');
+                    $(this).parents('li').children('ul').children('li').children('ul').slideUp(100);
+
+                    $(this).parents('li').children('ul').children('li').children('ul').parent('li').children('ul').parent('li').children('a').removeClass('aaa');
+                    $(this).parents('li').children('ul').children('li').children('ul').children('li').children('ul').slideUp(100);
+                }
+                $(this).addClass('aaa');
+                $(this).siblings('ul').slideDown(100);
+            }else{
+                $(this).removeClass('aaa');
+                $(this).siblings('ul').slideUp(100);
+            }
+        })
+    });
+
+        </script>
+</body>
+
+</html>
+
